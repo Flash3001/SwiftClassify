@@ -1,0 +1,28 @@
+﻿<Properties StartupItem="SwiftClassify/SwiftClassify.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SwiftClassify/Program.cs">
+    <Files>
+      <File FileName="SwiftClassify/Program.cs" Line="18" Column="40" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SwiftClassify PreferredExecutionTarget="MonoDevelop.Default">
+    <MonoDevelop.Ide.CustomExecutionModes>
+      <Data Name="Default (Custom)" Id="a746fc02-d290-4a10-98f9-81dda6c4e360" ModeId="Default">
+        <CommandData>
+          <Item Key="MonoDevelop.Ide.Execution.CustomArgsCustomizer">
+            <Value Arguments="~/Desktop/Teste/Charts-Swift.h ~/Desktop/Teste/ApiDefinition.cs ~/Desktop/Teste/Mappings.txt" ctype="CustomArgsExecutionModeData">
+              <EnvironmentVariables />
+            </Value>
+          </Item>
+          <Item Key="MonoDevelop.Ide.Execution.MonoExecutionCustomizer">
+            <Value ctype="MonoExecutionParameters" />
+          </Item>
+        </CommandData>
+      </Data>
+    </MonoDevelop.Ide.CustomExecutionModes>
+  </MonoDevelop.Ide.ItemProperties.SwiftClassify>
+</Properties>
