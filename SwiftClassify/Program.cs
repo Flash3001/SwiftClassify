@@ -9,8 +9,8 @@ namespace SwiftClassify
 {
 	static class MainClass
 	{
-		const string SWIFT_PROTOCOL = @"SWIFT_PROTOCOL(_NAMED)?\(""(?<i>[\w\d]+)""\)\n@protocol\s(?<n>[\w\d]+)";
-		const string SWIFT_CLASSE = @"SWIFT_CLASS(_NAMED)?\(""(?<i>[\w\d]+)""\)\n@interface\s(?<n>[\w\d]+)"; // \s:\s([\w\d]+)
+		const string SWIFT_PROTOCOL = @"SWIFT_PROTOCOL\(""(?<i>[\w\d]+)""\)\n@protocol\s(?<n>[\w\d]+)";
+		const string SWIFT_CLASSE = @"SWIFT_CLASS\(""(?<i>[\w\d]+)""\)\n@interface\s(?<n>[\w\d]+)"; // \s:\s([\w\d]+)
 
 		const string API_PROTOCOL = @"\s\[Protocol, Model\]\n\s*(\[(?<b>BaseType\s*\(typeof\([\w\d]+\))\)\]\n\s*)?interface\s*{0}\s";
 		const string API_CLASSE = @"\s\[(?<b>BaseType\s*\(typeof\([\w\d]+\))\)\]\n\s*(\[[\w\s]+\]\n\s*)*interface\s*{0}\s";
@@ -25,7 +25,6 @@ namespace SwiftClassify
 		{
 			try
 			{
-				args = new string[] { "/Users/flash/Desktop/Charts3/Products/Charts.framework/Headers/Charts-Swift.h", "/Users/flash/Desktop/Charts3/iOSCharts-2.Xamarin/ApiDefinition.cs" }; 
 				if (args.Length < 2)
 				{
 					Console.WriteLine("Usage: SwiftClassify PATH_TO_SWIFT.H PATH_TO_API_DEFINITION.CS PATH_TO_NAMING_MAP.TXT");
