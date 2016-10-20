@@ -9,11 +9,11 @@ namespace SwiftClassify
 {
 	static class MainClass
 	{
-		const string SWIFT_PROTOCOL = @"SWIFT_PROTOCOL\(""(?<i>[\w\d]+)""\)\n@protocol\s(?<n>[\w\d]+)";
-		const string SWIFT_CLASSE = @"SWIFT_CLASS\(""(?<i>[\w\d]+)""\)\n@interface\s(?<n>[\w\d]+)"; // \s:\s([\w\d]+)
+		const string SWIFT_PROTOCOL = @"SWIFT_PROTOCOL(_NAMED)?\(""(?<i>[\w\d]+)""\)\n@protocol\s(?<n>[\w\d]+)";
+		const string SWIFT_CLASSE = @"SWIFT_CLASS(_NAMED)?\(""(?<i>[\w\d]+)""\)\n@interface\s(?<n>[\w\d]+)"; // \s:\s([\w\d]+)
 
-		const string API_PROTOCOL = @"\s\[Protocol, Model\]\n\sinterface\s{0}\s";
-		const string API_CLASSE = @"\s\[(?<b>BaseType\(typeof\([\w\d]+\))\)\]\n\sinterface\s{0}\s";
+		const string API_PROTOCOL = @"\s\[Protocol, Model\]\n\s*(\[(?<b>BaseType\s*\(typeof\([\w\d]+\))\)\]\n\s*)?interface\s*{0}\s";
+		const string API_CLASSE = @"\s\[(?<b>BaseType\s*\(typeof\([\w\d]+\))\)\]\n\s*(\[[\w\s]+\]\n\s*)*interface\s*{0}\s";
 
 		const string MAPPING = @"(?<o>[\w\d]+)+=(?<n>[\w\d]+)";
 
@@ -25,6 +25,7 @@ namespace SwiftClassify
 		{
 			try
 			{
+				args = new string[] { "/Users/flash/Desktop/Charts3/Products/Charts.framework/Headers/Charts-Swift.h", "/Users/flash/Desktop/Charts3/iOSCharts-2.Xamarin/ApiDefinition.cs" }; 
 				if (args.Length < 2)
 				{
 					Console.WriteLine("Usage: SwiftClassify PATH_TO_SWIFT.H PATH_TO_API_DEFINITION.CS PATH_TO_NAMING_MAP.TXT");
@@ -135,8 +136,21 @@ namespace SwiftClassify
 		{
 			public override void Replace()
 			{
-				string oldValue = new Regex(string.Format(API_PROTOCOL, FinalName)).Match(StringApi).Value;
-				string newValue = oldValue.Replace("Protocol", $@"Protocol(Name = ""{CompiledName}"")");
+				var regex = new Regex(string.Format(API_PROTOCOL, FinalName)).Match(StringApi);
+
+				string oldValue = regex.Value;
+				string newValue = string.Empty;
+
+				if (regex.Groups["b"].Success)
+				{
+					var baseType = regex.Groups["b"].Value;
+					newValue = oldValue.Replace(baseType, $@"{baseType}, Name = ""{CompiledName}""");
+				}
+				else
+				{
+					newValue = oldValue.Replace("Protocol", $@"Protocol(Name = ""{CompiledName}"")");
+				}
+
 				SbApi.Replace(oldValue, newValue);
 			}
 		}

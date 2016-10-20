@@ -1,12 +1,16 @@
-﻿<Properties StartupItem="SwiftClassify/SwiftClassify.csproj">
+﻿<Properties StartupConfiguration="{EAE8F6F8-ABB8-4A28-8B44-6C8094E7EDB0}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="SwiftClassify/Program.cs">
     <Files>
-      <File FileName="SwiftClassify/Program.cs" Line="18" Column="40" />
+      <File FileName="SwiftClassify/Program.cs" Line="20" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/flash/Desktop/Charts/SwiftClassify/SwiftClassify/Program.cs" line="51" column="1" />
+      <Breakpoint conditionExpression="oldValue == string.Empty" file="/Users/flash/Desktop/Charts/SwiftClassify/SwiftClassify/Program.cs" line="154" column="1" />
+      <Breakpoint conditionExpression="oldValue == string.Empty" file="/Users/flash/Desktop/Charts/SwiftClassify/SwiftClassify/Program.cs" line="166" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.SwiftClassify PreferredExecutionTarget="MonoDevelop.Default">
